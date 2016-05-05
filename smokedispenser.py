@@ -12,7 +12,7 @@ class SmokeDispenser(Module):
         super(SmokeDispenser, self).__init__(SmokeDispenser.callback)
 
     def burn(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 SmokeDispenser.burn_command 
                 + '\n'
         )
@@ -20,7 +20,7 @@ class SmokeDispenser(Module):
         return self.parent.poll()
 
     def load(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 SmokeDispenser.load_command 
                 + '\n'
         )
@@ -28,7 +28,7 @@ class SmokeDispenser(Module):
         return self.parent.poll()
 
     def empty(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 SmokeDispenser.empty_command 
                 + '\n'
         )

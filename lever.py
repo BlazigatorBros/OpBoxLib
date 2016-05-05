@@ -12,7 +12,7 @@ class Lever(Module):
         super(Lever, self).__init__(callback)
 
     def extend(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Lever.extend_command
                 + " "
                 + str(self.lever_number)
@@ -21,7 +21,7 @@ class Lever(Module):
         return self.parent.poll()
 
     def retract(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Lever.retract_command
                 + " "
                 + str(self.lever_number)
@@ -30,7 +30,7 @@ class Lever(Module):
         return self.parent.poll()
 
     def getState(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Lever.state_command
                 + " "
                 + str(self.lever_number)

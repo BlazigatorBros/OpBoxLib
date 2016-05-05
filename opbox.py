@@ -3,7 +3,7 @@ from serial import Serial
 
 class OpBox:
 
-    port = "/dev/ttyS1"
+    port = "/dev/ttyACM0"
     baudrate = 9600
 
     def __init__(self):
@@ -17,7 +17,7 @@ class OpBox:
         polls untill one of the modules callbacks are called
         """
 
-        callbacks = [m.callback for m in modules]:
+        callbacks = [m.callback for m in modules]
 
         #get next response that is not from an interupt
 	while(True):
@@ -45,7 +45,7 @@ class OpBox:
 	Returns debug information
 	"""
 
-        self.serial.write("debug\n")
+        self.serialWrite("debug\n")
 	return self.poll()
 
     def attach(self, module):
@@ -68,7 +68,12 @@ class OpBox:
             return True
         else: return False
 
+    def serialWrite(self, command):
+            time.sleep(1)
+            self.serial.setDTR(level=1) 
+            time.sleep(1)
+
     def getTimestamp(self):
 
-        self.serial.write("time\n")
+        self.serialWrite("time\n")
         return int(self.poll())

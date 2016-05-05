@@ -10,7 +10,7 @@ class Fan(Module):
         super(Fan, self).__init__(Fan.callback)
 
     def setSpeed(self, rpm):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Fan.set_speed_command
                 + " "
                 + str(rpm)
@@ -19,7 +19,7 @@ class Fan(Module):
         return self.parent.poll()
 
     def getSpeed(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Fan.get_speed_command
                 + '\n')
 

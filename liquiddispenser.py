@@ -9,7 +9,7 @@ class LiquidDispenser(Module):
         super(LiquidDispenser, self).__init__(LiquidDispenser.callback)
 
     def dispense(self, duration):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 LiquidDispenser.dispense_command 
                 + " " 
                 + str(duration)

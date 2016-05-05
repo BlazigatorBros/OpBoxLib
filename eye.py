@@ -9,7 +9,7 @@ class Eye(Module):
         super(Eye, self).__init__(Eye.callback)
 
     def getState(self):
-        self.parent.serial.write(
+        self.parent.serialWrite(
                 Eye.state_command
                 + '\n')
 
