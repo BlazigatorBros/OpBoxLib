@@ -3,7 +3,7 @@ import time
 
 class SmokeDispenser(Module):
 
-    callback = "SmokeDispenserCallback"
+    callback = "ERROR_SMOKER_EMPTY"
     dose_command = "doses"
 
     def __init__(self):
